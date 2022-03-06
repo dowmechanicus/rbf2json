@@ -9,7 +9,7 @@ use data::RbfData;
 use header::Header;
 use index_lookup::RbfIndexLookup;
 use serde::Serialize;
-use table::RbfTable;
+use table::table::RbfTable;
 
 use crate::text::RbfStrings;
 
@@ -46,7 +46,8 @@ fn main() {
         text: &text,
     };
 
-    RbfTable::table2json(&buffer_data, 0);
+    let rc = RbfTable::table2json(&buffer_data, 0);
+    println!("{}", rc);
 
-    println!("{}", serde_json::to_string_pretty(&buffer_data).unwrap());
+    // println!("{}", serde_json::to_string_pretty(&buffer_data).unwrap());
 }

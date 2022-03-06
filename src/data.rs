@@ -19,8 +19,18 @@ pub struct RbfData {
 pub enum RbfDataUnion {
     Bval(bool),
     Ival(i32),
-    Uval(u32),
+    Uval(u32), // Index to the next leave in the JSON structure tree
     Fval(f32),
+}
+
+struct JsonData {
+    key: JsonDataKey,
+}
+
+enum JsonDataKey {
+    Ival(i32),
+    Fval(f32),
+    String(String),
 }
 
 impl RbfDataUnion {
